@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThanhVanTranSysModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="ThanhVanTranSysModelStoreContainer">
+    <EntitySet Name="AuditTrail" EntityType="ThanhVanTranSysModel.Store.AuditTrail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="AuditTrailDetail" EntityType="ThanhVanTranSysModel.Store.AuditTrailDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Bus" EntityType="ThanhVanTranSysModel.Store.Bus" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Configuration" EntityType="ThanhVanTranSysModel.Store.Configuration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Customer" EntityType="ThanhVanTranSysModel.Store.Customer" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Expense" EntityType="ThanhVanTranSysModel.Store.Expense" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FinishedTour" EntityType="ThanhVanTranSysModel.Store.FinishedTour" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="GuaranteeFeeConfiguration" EntityType="ThanhVanTranSysModel.Store.GuaranteeFeeConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="IrregularOrder" EntityType="ThanhVanTranSysModel.Store.IrregularOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderHistory" EntityType="ThanhVanTranSysModel.Store.OrderHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderHistoryDetail" EntityType="ThanhVanTranSysModel.Store.OrderHistoryDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OrderItem" EntityType="ThanhVanTranSysModel.Store.OrderItem" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RegularOrder" EntityType="ThanhVanTranSysModel.Store.RegularOrder" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Revenue" EntityType="ThanhVanTranSysModel.Store.Revenue" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="RevenueDetail" EntityType="ThanhVanTranSysModel.Store.RevenueDetail" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Seat" EntityType="ThanhVanTranSysModel.Store.Seat" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Staff" EntityType="ThanhVanTranSysModel.Store.Staff" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ticket" EntityType="ThanhVanTranSysModel.Store.Ticket" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketHistory" EntityType="ThanhVanTranSysModel.Store.TicketHistory" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketPriceConfiguration" EntityType="ThanhVanTranSysModel.Store.TicketPriceConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketReturnFeeConfiguration" EntityType="ThanhVanTranSysModel.Store.TicketReturnFeeConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TicketSaleDate" EntityType="ThanhVanTranSysModel.Store.TicketSaleDate" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Tour" EntityType="ThanhVanTranSysModel.Store.Tour" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="TransportPriceConfiguration" EntityType="ThanhVanTranSysModel.Store.TransportPriceConfiguration" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="User" EntityType="ThanhVanTranSysModel.Store.User" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="AuditTrail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="object_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="object_type" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="action" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="date_time" Type="datetime" Nullable="false" />
+    <Property Name="user_id" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="AuditTrailDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="parent_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="property_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="old_value" Type="nvarchar(max)" />
+    <Property Name="new_value" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Bus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="seat_count" Type="int" Nullable="false" />
+    <Property Name="sub_seat_count" Type="int" Nullable="false" />
+    <Property Name="bed_count" Type="int" Nullable="false" />
+    <Property Name="sub_bed_count" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="value" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="company" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="id_card_number" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="phone" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="mobile" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="address1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="address2" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FinishedTour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="total_tickets" Type="int" Nullable="false" />
+    <Property Name="total_amount" Type="decimal" Nullable="false" />
+    <Property Name="bus_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="finished_date" Type="date" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GuaranteeFeeConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="value_from" Type="decimal" Nullable="false" Precision="12" />
+    <Property Name="value_to" Type="decimal" Nullable="false" Precision="12" />
+    <Property Name="guarantee_fee" Type="decimal" Nullable="false" Precision="12" />
+  </EntityType>
+  <EntityType Name="IrregularOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sender_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="sender_phone" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="sender_id_card_no" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="sender_address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="recipient_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="recipient_phone" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="recipient_id_card_no" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="recipient_address" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="total_quantity" Type="int" Nullable="false" />
+    <Property Name="total_value" Type="decimal" Nullable="false" />
+    <Property Name="total_cost" Type="decimal" Nullable="false" />
+    <Property Name="order_status" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="payment_status" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="closed_date" Type="datetime" />
+    <Property Name="confirmation_user_id" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="order_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="action" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="date_time" Type="datetime" Nullable="false" />
+    <Property Name="user_id" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="OrderHistoryDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="parent_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="property_name" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="old_value" Type="nvarchar(max)" />
+    <Property Name="new_value" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="order_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="value" Type="decimal" Nullable="false" />
+    <Property Name="size" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="weight" Type="float" Nullable="false" />
+    <Property Name="cost" Type="decimal" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="order_item_number" Type="varchar" Nullable="false" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="RegularOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sender_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="recipient_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="total_quantity" Type="int" Nullable="false" />
+    <Property Name="total_value" Type="decimal" Nullable="false" />
+    <Property Name="total_cost" Type="decimal" Nullable="false" />
+    <Property Name="order_status" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="payment_status" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="closed_date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Revenue">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="255" />
+    <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RevenueDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="revenue_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="object_id" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="250" />
+    <Property Name="amount" Type="decimal" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="bus_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="seat_number" Type="int" Nullable="false" />
+    <Property Name="seat_class" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="price" Type="decimal" Nullable="false" />
+    <Property Name="type" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="name1" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="name2" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="personal_id" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="position" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="wage" Type="decimal" Nullable="false" />
+    <Property Name="join_date" Type="date" Nullable="false" />
+    <Property Name="working_status" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="user_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="bus_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="tour_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="passenger_name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="passenger_id_card_no" Type="char" Nullable="false" MaxLength="9" />
+    <Property Name="phone" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="seat_number" Type="int" Nullable="false" />
+    <Property Name="seat_class" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="cost" Type="decimal" Nullable="false" />
+    <Property Name="departure_time" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="varchar" Nullable="false" MaxLength="30" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="pickup_location" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="TicketHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ticket_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="action" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="changed_date" Type="datetime" Nullable="false" />
+    <Property Name="changed_by" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TicketPriceConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="seat_class" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="price" Type="decimal" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketReturnFeeConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="before_day" Type="int" Nullable="false" />
+    <Property Name="before_hour" Type="int" Nullable="false" />
+    <Property Name="fee_percent" Type="int" Nullable="false" />
+    <Property Name="fee_amount" Type="decimal" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketSaleDate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="ticket_sale_day" Type="int" Nullable="false" />
+    <Property Name="ticket_sale_month" Type="int" Nullable="false" />
+    <Property Name="ticket_sale_year" Type="int" Nullable="false" />
+    <Property Name="before_days" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="start" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="destination" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="travel_time" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransportPriceConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="size" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="weight_from" Type="float" Nullable="false" />
+    <Property Name="weight_to" Type="float" Nullable="false" />
+    <Property Name="transport_price" Type="decimal" Nullable="false" Precision="12" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="staff_id" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="user_name" Type="varchar(max)" Nullable="false" />
+    <Property Name="password" Type="varchar(max)" Nullable="false" />
+    <Property Name="created_date" Type="datetime" Nullable="false" />
+    <Property Name="created_by" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="role" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="active_status" Type="bit" Nullable="false" />
+    <Property Name="deleted" Type="bit" Nullable="false" />
+  </EntityType>
+</Schema>

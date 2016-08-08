@@ -1,0 +1,1036 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ThanhVanTranSysModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="object_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="object_type" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_time" Type="datetime" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuditTrailDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="parent_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="property_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="old_value" Type="nvarchar(max)" />
+          <Property Name="new_value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="seat_count" Type="int" Nullable="false" />
+          <Property Name="sub_seat_count" Type="int" Nullable="false" />
+          <Property Name="bed_count" Type="int" Nullable="false" />
+          <Property Name="sub_bed_count" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="value" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="company" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="id_card_number" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="address1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="address2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FinishedTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="total_tickets" Type="int" Nullable="false" />
+          <Property Name="total_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bus_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tour_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="finished_date" Type="date" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuaranteeFeeConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="value_from" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="value_to" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="guarantee_fee" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IrregularOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sender_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="sender_phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="sender_id_card_no" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="sender_address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="recipient_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipient_phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="recipient_id_card_no" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="recipient_address" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="tour_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="total_quantity" Type="int" Nullable="false" />
+          <Property Name="total_value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total_cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="order_status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="payment_status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="closed_date" Type="datetime" />
+          <Property Name="confirmation_user_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="order_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="action" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="date_time" Type="datetime" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHistoryDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="parent_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="property_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="old_value" Type="nvarchar(max)" />
+          <Property Name="new_value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="order_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="weight" Type="float" Nullable="false" />
+          <Property Name="cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="order_item_number" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegularOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="sender_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="recipient_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tour_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="total_quantity" Type="int" Nullable="false" />
+          <Property Name="total_value" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total_cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="order_status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="payment_status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="closed_date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Revenue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RevenueDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="revenue_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="object_id" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="title" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Seat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bus_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="seat_number" Type="int" Nullable="false" />
+          <Property Name="seat_class" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="type" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="name1" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="name2" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="personal_id" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="position" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="wage" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="join_date" Type="date" Nullable="false" />
+          <Property Name="working_status" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="bus_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tour_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="passenger_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="passenger_id_card_no" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="phone" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="seat_number" Type="int" Nullable="false" />
+          <Property Name="seat_class" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="cost" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="departure_time" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ticket_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="action" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="changed_date" Type="datetime" Nullable="false" />
+          <Property Name="changed_by" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketPriceConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="seat_class" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketReturnFeeConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="before_day" Type="int" Nullable="false" />
+          <Property Name="before_hour" Type="int" Nullable="false" />
+          <Property Name="fee_percent" Type="int" Nullable="false" />
+          <Property Name="fee_amount" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketSaleDate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ticket_sale_day" Type="int" Nullable="false" />
+          <Property Name="ticket_sale_month" Type="int" Nullable="false" />
+          <Property Name="ticket_sale_year" Type="int" Nullable="false" />
+          <Property Name="before_days" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="start" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="destination" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="travel_time" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransportPriceConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="size" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="weight_from" Type="float" Nullable="false" />
+          <Property Name="weight_to" Type="float" Nullable="false" />
+          <Property Name="transport_price" Type="decimal" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="staff_id" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="user_name" Type="varchar(max)" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="created_date" Type="datetime" Nullable="false" />
+          <Property Name="created_by" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="role" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="active_status" Type="bit" Nullable="false" />
+          <Property Name="deleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ThanhVanTranSysModelStoreContainer">
+          <EntitySet Name="AuditTrail" EntityType="Self.AuditTrail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AuditTrailDetail" EntityType="Self.AuditTrailDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bus" EntityType="Self.Bus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Configuration" EntityType="Self.Configuration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Expense" EntityType="Self.Expense" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinishedTour" EntityType="Self.FinishedTour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GuaranteeFeeConfiguration" EntityType="Self.GuaranteeFeeConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IrregularOrder" EntityType="Self.IrregularOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderHistory" EntityType="Self.OrderHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderHistoryDetail" EntityType="Self.OrderHistoryDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderItem" EntityType="Self.OrderItem" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RegularOrder" EntityType="Self.RegularOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Revenue" EntityType="Self.Revenue" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RevenueDetail" EntityType="Self.RevenueDetail" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Seat" EntityType="Self.Seat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ticket" EntityType="Self.Ticket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketHistory" EntityType="Self.TicketHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketPriceConfiguration" EntityType="Self.TicketPriceConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketReturnFeeConfiguration" EntityType="Self.TicketReturnFeeConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TicketSaleDate" EntityType="Self.TicketSaleDate" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tour" EntityType="Self.Tour" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransportPriceConfiguration" EntityType="Self.TransportPriceConfiguration" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ThanhVanTranSysModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AuditTrail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="object_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="object_type" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AuditTrailDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="property_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="old_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="new_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Bus">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="seat_count" Type="Int32" Nullable="false" />
+          <Property Name="sub_seat_count" Type="Int32" Nullable="false" />
+          <Property Name="bed_count" Type="Int32" Nullable="false" />
+          <Property Name="sub_bed_count" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Configuration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="company" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="id_card_number" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="address1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="address2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Expense">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="FinishedTour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total_tickets" Type="Int32" Nullable="false" />
+          <Property Name="total_amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="bus_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tour_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="finished_date" Type="DateTime" Precision="0" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GuaranteeFeeConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="value_from" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="value_to" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="guarantee_fee" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IrregularOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="sender_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sender_id_card_no" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="sender_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="recipient_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="recipient_phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="recipient_id_card_no" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="recipient_address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="tour_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total_quantity" Type="Int32" Nullable="false" />
+          <Property Name="total_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total_cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="order_status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payment_status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="closed_date" Type="DateTime" Precision="3" />
+          <Property Name="confirmation_user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="order_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="date_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OrderHistoryDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="parent_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="property_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="old_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="new_value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="OrderItem">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="order_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="weight" Type="Double" Nullable="false" />
+          <Property Name="cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="order_item_number" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RegularOrder">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="sender_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="recipient_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tour_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="total_quantity" Type="Int32" Nullable="false" />
+          <Property Name="total_value" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="total_cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="order_status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="payment_status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="closed_date" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Revenue">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="RevenueDetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="revenue_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="object_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Seat">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bus_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seat_number" Type="Int32" Nullable="false" />
+          <Property Name="seat_class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="type" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="name1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="name2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="personal_id" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="position" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="wage" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="join_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="working_status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ticket">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bus_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tour_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="passenger_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="passenger_id_card_no" Type="String" MaxLength="9" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seat_number" Type="Int32" Nullable="false" />
+          <Property Name="seat_class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="cost" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="departure_time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="TicketHistory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticket_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="action" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="changed_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="changed_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketPriceConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="seat_class" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="price" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketReturnFeeConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="before_day" Type="Int32" Nullable="false" />
+          <Property Name="before_hour" Type="Int32" Nullable="false" />
+          <Property Name="fee_percent" Type="Int32" Nullable="false" />
+          <Property Name="fee_amount" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TicketSaleDate">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticket_sale_day" Type="Int32" Nullable="false" />
+          <Property Name="ticket_sale_month" Type="Int32" Nullable="false" />
+          <Property Name="ticket_sale_year" Type="Int32" Nullable="false" />
+          <Property Name="before_days" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Tour">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="start" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="destination" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="travel_time" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransportPriceConfiguration">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="size" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="weight_from" Type="Double" Nullable="false" />
+          <Property Name="weight_to" Type="Double" Nullable="false" />
+          <Property Name="transport_price" Type="Decimal" Precision="12" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="staff_id" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="user_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="created_date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="created_by" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="active_status" Type="Boolean" Nullable="false" />
+          <Property Name="deleted" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="ThanhVanTranSysEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AuditTrails" EntityType="Self.AuditTrail" />
+          <EntitySet Name="AuditTrailDetails" EntityType="Self.AuditTrailDetail" />
+          <EntitySet Name="Buses" EntityType="Self.Bus" />
+          <EntitySet Name="Configurations" EntityType="Self.Configuration" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Expenses" EntityType="Self.Expense" />
+          <EntitySet Name="FinishedTours" EntityType="Self.FinishedTour" />
+          <EntitySet Name="GuaranteeFeeConfigurations" EntityType="Self.GuaranteeFeeConfiguration" />
+          <EntitySet Name="IrregularOrders" EntityType="Self.IrregularOrder" />
+          <EntitySet Name="OrderHistories" EntityType="Self.OrderHistory" />
+          <EntitySet Name="OrderHistoryDetails" EntityType="Self.OrderHistoryDetail" />
+          <EntitySet Name="OrderItems" EntityType="Self.OrderItem" />
+          <EntitySet Name="RegularOrders" EntityType="Self.RegularOrder" />
+          <EntitySet Name="Revenues" EntityType="Self.Revenue" />
+          <EntitySet Name="RevenueDetails" EntityType="Self.RevenueDetail" />
+          <EntitySet Name="Seats" EntityType="Self.Seat" />
+          <EntitySet Name="Staffs" EntityType="Self.Staff" />
+          <EntitySet Name="Tickets" EntityType="Self.Ticket" />
+          <EntitySet Name="TicketHistories" EntityType="Self.TicketHistory" />
+          <EntitySet Name="TicketPriceConfigurations" EntityType="Self.TicketPriceConfiguration" />
+          <EntitySet Name="TicketReturnFeeConfigurations" EntityType="Self.TicketReturnFeeConfiguration" />
+          <EntitySet Name="TicketSaleDates" EntityType="Self.TicketSaleDate" />
+          <EntitySet Name="Tours" EntityType="Self.Tour" />
+          <EntitySet Name="TransportPriceConfigurations" EntityType="Self.TransportPriceConfiguration" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ThanhVanTranSysModelStoreContainer" CdmEntityContainer="ThanhVanTranSysEntities">
+          <EntitySetMapping Name="AuditTrails">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.AuditTrail">
+              <MappingFragment StoreEntitySet="AuditTrail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="object_id" ColumnName="object_id" />
+                <ScalarProperty Name="object_type" ColumnName="object_type" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AuditTrailDetails">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.AuditTrailDetail">
+              <MappingFragment StoreEntitySet="AuditTrailDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="property_name" ColumnName="property_name" />
+                <ScalarProperty Name="old_value" ColumnName="old_value" />
+                <ScalarProperty Name="new_value" ColumnName="new_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Buses">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Bus">
+              <MappingFragment StoreEntitySet="Bus">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="seat_count" ColumnName="seat_count" />
+                <ScalarProperty Name="sub_seat_count" ColumnName="sub_seat_count" />
+                <ScalarProperty Name="bed_count" ColumnName="bed_count" />
+                <ScalarProperty Name="sub_bed_count" ColumnName="sub_bed_count" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Configurations">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Configuration">
+              <MappingFragment StoreEntitySet="Configuration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="company" ColumnName="company" />
+                <ScalarProperty Name="id_card_number" ColumnName="id_card_number" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Expenses">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Expense">
+              <MappingFragment StoreEntitySet="Expense">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinishedTours">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.FinishedTour">
+              <MappingFragment StoreEntitySet="FinishedTour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="total_tickets" ColumnName="total_tickets" />
+                <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+                <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="finished_date" ColumnName="finished_date" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GuaranteeFeeConfigurations">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.GuaranteeFeeConfiguration">
+              <MappingFragment StoreEntitySet="GuaranteeFeeConfiguration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="value_from" ColumnName="value_from" />
+                <ScalarProperty Name="value_to" ColumnName="value_to" />
+                <ScalarProperty Name="guarantee_fee" ColumnName="guarantee_fee" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IrregularOrders">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.IrregularOrder">
+              <MappingFragment StoreEntitySet="IrregularOrder">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+                <ScalarProperty Name="sender_phone" ColumnName="sender_phone" />
+                <ScalarProperty Name="sender_id_card_no" ColumnName="sender_id_card_no" />
+                <ScalarProperty Name="sender_address" ColumnName="sender_address" />
+                <ScalarProperty Name="recipient_name" ColumnName="recipient_name" />
+                <ScalarProperty Name="recipient_phone" ColumnName="recipient_phone" />
+                <ScalarProperty Name="recipient_id_card_no" ColumnName="recipient_id_card_no" />
+                <ScalarProperty Name="recipient_address" ColumnName="recipient_address" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="total_quantity" ColumnName="total_quantity" />
+                <ScalarProperty Name="total_value" ColumnName="total_value" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+                <ScalarProperty Name="confirmation_user_id" ColumnName="confirmation_user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHistories">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderHistory">
+              <MappingFragment StoreEntitySet="OrderHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="date_time" ColumnName="date_time" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderHistoryDetails">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderHistoryDetail">
+              <MappingFragment StoreEntitySet="OrderHistoryDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+                <ScalarProperty Name="property_name" ColumnName="property_name" />
+                <ScalarProperty Name="old_value" ColumnName="old_value" />
+                <ScalarProperty Name="new_value" ColumnName="new_value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderItems">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderItem">
+              <MappingFragment StoreEntitySet="OrderItem">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="order_id" ColumnName="order_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="value" ColumnName="value" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="order_item_number" ColumnName="order_item_number" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RegularOrders">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.RegularOrder">
+              <MappingFragment StoreEntitySet="RegularOrder">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+                <ScalarProperty Name="recipient_id" ColumnName="recipient_id" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="total_quantity" ColumnName="total_quantity" />
+                <ScalarProperty Name="total_value" ColumnName="total_value" />
+                <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+                <ScalarProperty Name="order_status" ColumnName="order_status" />
+                <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Revenues">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Revenue">
+              <MappingFragment StoreEntitySet="Revenue">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RevenueDetails">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.RevenueDetail">
+              <MappingFragment StoreEntitySet="RevenueDetail">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="revenue_id" ColumnName="revenue_id" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="object_id" ColumnName="object_id" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Seats">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Seat">
+              <MappingFragment StoreEntitySet="Seat">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+                <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+                <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name1" ColumnName="name1" />
+                <ScalarProperty Name="name2" ColumnName="name2" />
+                <ScalarProperty Name="personal_id" ColumnName="personal_id" />
+                <ScalarProperty Name="position" ColumnName="position" />
+                <ScalarProperty Name="wage" ColumnName="wage" />
+                <ScalarProperty Name="join_date" ColumnName="join_date" />
+                <ScalarProperty Name="working_status" ColumnName="working_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tickets">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Ticket">
+              <MappingFragment StoreEntitySet="Ticket">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="user_id" ColumnName="user_id" />
+                <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+                <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+                <ScalarProperty Name="passenger_name" ColumnName="passenger_name" />
+                <ScalarProperty Name="passenger_id_card_no" ColumnName="passenger_id_card_no" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+                <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+                <ScalarProperty Name="cost" ColumnName="cost" />
+                <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketHistories">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketHistory">
+              <MappingFragment StoreEntitySet="TicketHistory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+                <ScalarProperty Name="action" ColumnName="action" />
+                <ScalarProperty Name="changed_date" ColumnName="changed_date" />
+                <ScalarProperty Name="changed_by" ColumnName="changed_by" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketPriceConfigurations">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketPriceConfiguration">
+              <MappingFragment StoreEntitySet="TicketPriceConfiguration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="description" ColumnName="description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketReturnFeeConfigurations">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketReturnFeeConfiguration">
+              <MappingFragment StoreEntitySet="TicketReturnFeeConfiguration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="before_day" ColumnName="before_day" />
+                <ScalarProperty Name="before_hour" ColumnName="before_hour" />
+                <ScalarProperty Name="fee_percent" ColumnName="fee_percent" />
+                <ScalarProperty Name="fee_amount" ColumnName="fee_amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TicketSaleDates">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketSaleDate">
+              <MappingFragment StoreEntitySet="TicketSaleDate">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="ticket_sale_day" ColumnName="ticket_sale_day" />
+                <ScalarProperty Name="ticket_sale_month" ColumnName="ticket_sale_month" />
+                <ScalarProperty Name="ticket_sale_year" ColumnName="ticket_sale_year" />
+                <ScalarProperty Name="before_days" ColumnName="before_days" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tours">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.Tour">
+              <MappingFragment StoreEntitySet="Tour">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="start" ColumnName="start" />
+                <ScalarProperty Name="destination" ColumnName="destination" />
+                <ScalarProperty Name="travel_time" ColumnName="travel_time" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransportPriceConfigurations">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.TransportPriceConfiguration">
+              <MappingFragment StoreEntitySet="TransportPriceConfiguration">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="weight_from" ColumnName="weight_from" />
+                <ScalarProperty Name="weight_to" ColumnName="weight_to" />
+                <ScalarProperty Name="transport_price" ColumnName="transport_price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="ThanhVanTranSysModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="role" ColumnName="role" />
+                <ScalarProperty Name="active_status" ColumnName="active_status" />
+                <ScalarProperty Name="deleted" ColumnName="deleted" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

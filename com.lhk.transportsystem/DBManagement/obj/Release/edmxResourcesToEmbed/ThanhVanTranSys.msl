@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ThanhVanTranSysModelStoreContainer" CdmEntityContainer="ThanhVanTranSysEntities">
+    <EntitySetMapping Name="AuditTrails">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.AuditTrail">
+        <MappingFragment StoreEntitySet="AuditTrail">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="date_time" ColumnName="date_time" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="object_type" ColumnName="object_type" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AuditTrailDetails">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.AuditTrailDetail">
+        <MappingFragment StoreEntitySet="AuditTrailDetail">
+          <ScalarProperty Name="new_value" ColumnName="new_value" />
+          <ScalarProperty Name="old_value" ColumnName="old_value" />
+          <ScalarProperty Name="property_name" ColumnName="property_name" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Buses">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Bus">
+        <MappingFragment StoreEntitySet="Bus">
+          <ScalarProperty Name="sub_bed_count" ColumnName="sub_bed_count" />
+          <ScalarProperty Name="bed_count" ColumnName="bed_count" />
+          <ScalarProperty Name="sub_seat_count" ColumnName="sub_seat_count" />
+          <ScalarProperty Name="seat_count" ColumnName="seat_count" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Configurations">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Configuration">
+        <MappingFragment StoreEntitySet="Configuration">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="address2" ColumnName="address2" />
+          <ScalarProperty Name="address1" ColumnName="address1" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="id_card_number" ColumnName="id_card_number" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Expenses">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Expense">
+        <MappingFragment StoreEntitySet="Expense">
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinishedTours">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.FinishedTour">
+        <MappingFragment StoreEntitySet="FinishedTour">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="finished_date" ColumnName="finished_date" />
+          <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="total_amount" ColumnName="total_amount" />
+          <ScalarProperty Name="total_tickets" ColumnName="total_tickets" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GuaranteeFeeConfigurations">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.GuaranteeFeeConfiguration">
+        <MappingFragment StoreEntitySet="GuaranteeFeeConfiguration">
+          <ScalarProperty Name="guarantee_fee" ColumnName="guarantee_fee" />
+          <ScalarProperty Name="value_to" ColumnName="value_to" />
+          <ScalarProperty Name="value_from" ColumnName="value_from" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="IrregularOrders">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.IrregularOrder">
+        <MappingFragment StoreEntitySet="IrregularOrder">
+          <ScalarProperty Name="confirmation_user_id" ColumnName="confirmation_user_id" />
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+          <ScalarProperty Name="total_value" ColumnName="total_value" />
+          <ScalarProperty Name="total_quantity" ColumnName="total_quantity" />
+          <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+          <ScalarProperty Name="recipient_address" ColumnName="recipient_address" />
+          <ScalarProperty Name="recipient_id_card_no" ColumnName="recipient_id_card_no" />
+          <ScalarProperty Name="recipient_phone" ColumnName="recipient_phone" />
+          <ScalarProperty Name="recipient_name" ColumnName="recipient_name" />
+          <ScalarProperty Name="sender_address" ColumnName="sender_address" />
+          <ScalarProperty Name="sender_id_card_no" ColumnName="sender_id_card_no" />
+          <ScalarProperty Name="sender_phone" ColumnName="sender_phone" />
+          <ScalarProperty Name="sender_name" ColumnName="sender_name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHistories">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderHistory">
+        <MappingFragment StoreEntitySet="OrderHistory">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="date_time" ColumnName="date_time" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderHistoryDetails">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderHistoryDetail">
+        <MappingFragment StoreEntitySet="OrderHistoryDetail">
+          <ScalarProperty Name="new_value" ColumnName="new_value" />
+          <ScalarProperty Name="old_value" ColumnName="old_value" />
+          <ScalarProperty Name="property_name" ColumnName="property_name" />
+          <ScalarProperty Name="parent_id" ColumnName="parent_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderItems">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.OrderItem">
+        <MappingFragment StoreEntitySet="OrderItem">
+          <ScalarProperty Name="order_item_number" ColumnName="order_item_number" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="value" ColumnName="value" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="order_id" ColumnName="order_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegularOrders">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.RegularOrder">
+        <MappingFragment StoreEntitySet="RegularOrder">
+          <ScalarProperty Name="closed_date" ColumnName="closed_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="payment_status" ColumnName="payment_status" />
+          <ScalarProperty Name="order_status" ColumnName="order_status" />
+          <ScalarProperty Name="total_cost" ColumnName="total_cost" />
+          <ScalarProperty Name="total_value" ColumnName="total_value" />
+          <ScalarProperty Name="total_quantity" ColumnName="total_quantity" />
+          <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+          <ScalarProperty Name="recipient_id" ColumnName="recipient_id" />
+          <ScalarProperty Name="sender_id" ColumnName="sender_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Revenues">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Revenue">
+        <MappingFragment StoreEntitySet="Revenue">
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RevenueDetails">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.RevenueDetail">
+        <MappingFragment StoreEntitySet="RevenueDetail">
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="amount" ColumnName="amount" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="object_id" ColumnName="object_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="revenue_id" ColumnName="revenue_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seats">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Seat">
+        <MappingFragment StoreEntitySet="Seat">
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+          <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Staffs">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Staff">
+        <MappingFragment StoreEntitySet="Staff">
+          <ScalarProperty Name="working_status" ColumnName="working_status" />
+          <ScalarProperty Name="join_date" ColumnName="join_date" />
+          <ScalarProperty Name="wage" ColumnName="wage" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="personal_id" ColumnName="personal_id" />
+          <ScalarProperty Name="name2" ColumnName="name2" />
+          <ScalarProperty Name="name1" ColumnName="name1" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tickets">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Ticket">
+        <MappingFragment StoreEntitySet="Ticket">
+          <ScalarProperty Name="pickup_location" ColumnName="pickup_location" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="departure_time" ColumnName="departure_time" />
+          <ScalarProperty Name="cost" ColumnName="cost" />
+          <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+          <ScalarProperty Name="seat_number" ColumnName="seat_number" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="passenger_id_card_no" ColumnName="passenger_id_card_no" />
+          <ScalarProperty Name="passenger_name" ColumnName="passenger_name" />
+          <ScalarProperty Name="tour_id" ColumnName="tour_id" />
+          <ScalarProperty Name="bus_id" ColumnName="bus_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketHistories">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketHistory">
+        <MappingFragment StoreEntitySet="TicketHistory">
+          <ScalarProperty Name="changed_by" ColumnName="changed_by" />
+          <ScalarProperty Name="changed_date" ColumnName="changed_date" />
+          <ScalarProperty Name="action" ColumnName="action" />
+          <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketPriceConfigurations">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketPriceConfiguration">
+        <MappingFragment StoreEntitySet="TicketPriceConfiguration">
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="seat_class" ColumnName="seat_class" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketReturnFeeConfigurations">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketReturnFeeConfiguration">
+        <MappingFragment StoreEntitySet="TicketReturnFeeConfiguration">
+          <ScalarProperty Name="fee_amount" ColumnName="fee_amount" />
+          <ScalarProperty Name="fee_percent" ColumnName="fee_percent" />
+          <ScalarProperty Name="before_hour" ColumnName="before_hour" />
+          <ScalarProperty Name="before_day" ColumnName="before_day" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketSaleDates">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.TicketSaleDate">
+        <MappingFragment StoreEntitySet="TicketSaleDate">
+          <ScalarProperty Name="before_days" ColumnName="before_days" />
+          <ScalarProperty Name="ticket_sale_year" ColumnName="ticket_sale_year" />
+          <ScalarProperty Name="ticket_sale_month" ColumnName="ticket_sale_month" />
+          <ScalarProperty Name="ticket_sale_day" ColumnName="ticket_sale_day" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tours">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.Tour">
+        <MappingFragment StoreEntitySet="Tour">
+          <ScalarProperty Name="travel_time" ColumnName="travel_time" />
+          <ScalarProperty Name="destination" ColumnName="destination" />
+          <ScalarProperty Name="start" ColumnName="start" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TransportPriceConfigurations">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.TransportPriceConfiguration">
+        <MappingFragment StoreEntitySet="TransportPriceConfiguration">
+          <ScalarProperty Name="transport_price" ColumnName="transport_price" />
+          <ScalarProperty Name="weight_to" ColumnName="weight_to" />
+          <ScalarProperty Name="weight_from" ColumnName="weight_from" />
+          <ScalarProperty Name="size" ColumnName="size" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="ThanhVanTranSysModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="deleted" ColumnName="deleted" />
+          <ScalarProperty Name="active_status" ColumnName="active_status" />
+          <ScalarProperty Name="role" ColumnName="role" />
+          <ScalarProperty Name="created_by" ColumnName="created_by" />
+          <ScalarProperty Name="created_date" ColumnName="created_date" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="staff_id" ColumnName="staff_id" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

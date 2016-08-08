@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+  <Setting id="ServerIp" name="Ip máy chủ">115.73.67.66</Setting>
+  <Setting id="ServerPort" name="Port máy chủ">3030</Setting>
+  <Setting id="ClientIp" name="Ip máy con">127.0.0.1</Setting>
+  <Setting id="ClientPort" name="Port máy Con">3030</Setting>
+  <Setting id="GetExtenalAdress" name="Địa chỉ Extenal">http://checkip.dyndns.com/</Setting>
+</Configuration>

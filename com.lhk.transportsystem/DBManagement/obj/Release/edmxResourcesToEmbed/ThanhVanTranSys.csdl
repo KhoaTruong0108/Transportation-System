@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ThanhVanTranSysModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="ThanhVanTranSysEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="AuditTrails" EntityType="ThanhVanTranSysModel.AuditTrail" />
+    <EntitySet Name="AuditTrailDetails" EntityType="ThanhVanTranSysModel.AuditTrailDetail" />
+    <EntitySet Name="Buses" EntityType="ThanhVanTranSysModel.Bus" />
+    <EntitySet Name="Configurations" EntityType="ThanhVanTranSysModel.Configuration" />
+    <EntitySet Name="Customers" EntityType="ThanhVanTranSysModel.Customer" />
+    <EntitySet Name="Expenses" EntityType="ThanhVanTranSysModel.Expense" />
+    <EntitySet Name="FinishedTours" EntityType="ThanhVanTranSysModel.FinishedTour" />
+    <EntitySet Name="GuaranteeFeeConfigurations" EntityType="ThanhVanTranSysModel.GuaranteeFeeConfiguration" />
+    <EntitySet Name="IrregularOrders" EntityType="ThanhVanTranSysModel.IrregularOrder" />
+    <EntitySet Name="OrderHistories" EntityType="ThanhVanTranSysModel.OrderHistory" />
+    <EntitySet Name="OrderHistoryDetails" EntityType="ThanhVanTranSysModel.OrderHistoryDetail" />
+    <EntitySet Name="OrderItems" EntityType="ThanhVanTranSysModel.OrderItem" />
+    <EntitySet Name="RegularOrders" EntityType="ThanhVanTranSysModel.RegularOrder" />
+    <EntitySet Name="Revenues" EntityType="ThanhVanTranSysModel.Revenue" />
+    <EntitySet Name="RevenueDetails" EntityType="ThanhVanTranSysModel.RevenueDetail" />
+    <EntitySet Name="Seats" EntityType="ThanhVanTranSysModel.Seat" />
+    <EntitySet Name="Staffs" EntityType="ThanhVanTranSysModel.Staff" />
+    <EntitySet Name="Tickets" EntityType="ThanhVanTranSysModel.Ticket" />
+    <EntitySet Name="TicketHistories" EntityType="ThanhVanTranSysModel.TicketHistory" />
+    <EntitySet Name="TicketPriceConfigurations" EntityType="ThanhVanTranSysModel.TicketPriceConfiguration" />
+    <EntitySet Name="TicketReturnFeeConfigurations" EntityType="ThanhVanTranSysModel.TicketReturnFeeConfiguration" />
+    <EntitySet Name="TicketSaleDates" EntityType="ThanhVanTranSysModel.TicketSaleDate" />
+    <EntitySet Name="Tours" EntityType="ThanhVanTranSysModel.Tour" />
+    <EntitySet Name="TransportPriceConfigurations" EntityType="ThanhVanTranSysModel.TransportPriceConfiguration" />
+    <EntitySet Name="Users" EntityType="ThanhVanTranSysModel.User" />
+  </EntityContainer>
+  <EntityType Name="AuditTrail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="object_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="object_type" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="action" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="date_time" Nullable="false" Precision="3" />
+    <Property Type="String" Name="user_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AuditTrailDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="parent_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="property_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="old_value" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="new_value" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Bus">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="seat_count" Nullable="false" />
+    <Property Type="Int32" Name="sub_seat_count" Nullable="false" />
+    <Property Type="Int32" Name="bed_count" Nullable="false" />
+    <Property Type="Int32" Name="sub_bed_count" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Configuration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="value" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="company" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="id_card_number" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="phone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="mobile" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="address1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="address2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Expense">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="amount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="FinishedTour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="total_tickets" Nullable="false" />
+    <Property Type="Decimal" Name="total_amount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="bus_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="tour_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="finished_date" Precision="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="GuaranteeFeeConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="value_from" Nullable="false" Precision="12" Scale="0" />
+    <Property Type="Decimal" Name="value_to" Nullable="false" Precision="12" Scale="0" />
+    <Property Type="Decimal" Name="guarantee_fee" Nullable="false" Precision="12" Scale="0" />
+  </EntityType>
+  <EntityType Name="IrregularOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sender_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="sender_phone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sender_id_card_no" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="sender_address" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="recipient_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="recipient_phone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="recipient_id_card_no" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="recipient_address" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="tour_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="total_quantity" Nullable="false" />
+    <Property Type="Decimal" Name="total_value" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="total_cost" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="order_status" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="payment_status" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="closed_date" Precision="3" />
+    <Property Type="String" Name="confirmation_user_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrderHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="order_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="action" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="date_time" Nullable="false" Precision="3" />
+    <Property Type="String" Name="user_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="OrderHistoryDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="parent_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="property_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="old_value" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="new_value" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="OrderItem">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="order_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="quantity" Nullable="false" />
+    <Property Type="Decimal" Name="value" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="size" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="weight" Nullable="false" />
+    <Property Type="Decimal" Name="cost" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="order_item_number" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RegularOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sender_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="recipient_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="tour_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="total_quantity" Nullable="false" />
+    <Property Type="Decimal" Name="total_value" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Decimal" Name="total_cost" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="order_status" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="payment_status" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="closed_date" Precision="3" />
+  </EntityType>
+  <EntityType Name="Revenue">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="amount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="RevenueDetail">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="revenue_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="object_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="amount" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Seat">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="bus_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="seat_number" Nullable="false" />
+    <Property Type="String" Name="seat_class" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="price" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="Int32" Name="type" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Staff">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="name1" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="name2" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="personal_id" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="position" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Decimal" Name="wage" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="join_date" Nullable="false" Precision="0" />
+    <Property Type="String" Name="working_status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Ticket">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="user_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="bus_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="tour_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="passenger_name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="passenger_id_card_no" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+    <Property Type="String" Name="phone" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="seat_number" Nullable="false" />
+    <Property Type="String" Name="seat_class" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="cost" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="DateTime" Name="departure_time" Nullable="false" Precision="3" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="pickup_location" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TicketHistory">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ticket_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="action" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="changed_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="changed_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TicketPriceConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="seat_class" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="price" Nullable="false" Precision="18" Scale="0" />
+    <Property Type="String" Name="description" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="TicketReturnFeeConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="before_day" Nullable="false" />
+    <Property Type="Int32" Name="before_hour" Nullable="false" />
+    <Property Type="Int32" Name="fee_percent" Nullable="false" />
+    <Property Type="Decimal" Name="fee_amount" Nullable="false" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="TicketSaleDate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="ticket_sale_day" Nullable="false" />
+    <Property Type="Int32" Name="ticket_sale_month" Nullable="false" />
+    <Property Type="Int32" Name="ticket_sale_year" Nullable="false" />
+    <Property Type="Int32" Name="before_days" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tour">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="start" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="destination" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="travel_time" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TransportPriceConfiguration">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="size" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Double" Name="weight_from" Nullable="false" />
+    <Property Type="Double" Name="weight_to" Nullable="false" />
+    <Property Type="Decimal" Name="transport_price" Nullable="false" Precision="12" Scale="0" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Type="String" Name="id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="staff_id" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="user_name" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="password" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="created_date" Nullable="false" Precision="3" />
+    <Property Type="String" Name="created_by" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="role" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="active_status" Nullable="false" />
+    <Property Type="Boolean" Name="deleted" Nullable="false" />
+  </EntityType>
+</Schema>

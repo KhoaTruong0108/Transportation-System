@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4F7AEBC5-FDE1-4287-BBD7-42D058C0564E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeFirstToDB</RootNamespace>
+    <AssemblyName>CodeFirstToDB</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\MainServer\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\MainServer\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AuditTrail.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AuditTrailDetail.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bus.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Configuration.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Expense.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FinishedTour.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GuaranteeFeeConfiguration.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IrregularOrder.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AuditTrail.cs" />
+    <Compile Include="Models\AuditTrailDetail.cs" />
+    <Compile Include="Models\Bus.cs" />
+    <Compile Include="Models\Configuration.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Expense.cs" />
+    <Compile Include="Models\FinishedTour.cs" />
+    <Compile Include="Models\GuaranteeFeeConfiguration.cs" />
+    <Compile Include="Models\IrregularOrder.cs" />
+    <Compile Include="Models\Mapping\AuditTrailDetailMap.cs" />
+    <Compile Include="Models\Mapping\AuditTrailMap.cs" />
+    <Compile Include="Models\Mapping\BusMap.cs" />
+    <Compile Include="Models\Mapping\ConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\CustomerMap.cs" />
+    <Compile Include="Models\Mapping\ExpenseMap.cs" />
+    <Compile Include="Models\Mapping\FinishedTourMap.cs" />
+    <Compile Include="Models\Mapping\GuaranteeFeeConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\IrregularOrderMap.cs" />
+    <Compile Include="Models\Mapping\OrderHistoryDetailMap.cs" />
+    <Compile Include="Models\Mapping\OrderHistoryMap.cs" />
+    <Compile Include="Models\Mapping\OrderItemMap.cs" />
+    <Compile Include="Models\Mapping\RegularOrderMap.cs" />
+    <Compile Include="Models\Mapping\RevenueDetailMap.cs" />
+    <Compile Include="Models\Mapping\RevenueMap.cs" />
+    <Compile Include="Models\Mapping\SeatMap.cs" />
+    <Compile Include="Models\Mapping\StaffMap.cs" />
+    <Compile Include="Models\Mapping\TicketHistoryMap.cs" />
+    <Compile Include="Models\Mapping\TicketMap.cs" />
+    <Compile Include="Models\Mapping\TicketPriceConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\TicketReturnFeeConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\TicketSaleDateMap.cs" />
+    <Compile Include="Models\Mapping\TourMap.cs" />
+    <Compile Include="Models\Mapping\TransportPriceConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\OrderHistory.cs" />
+    <Compile Include="Models\OrderHistoryDetail.cs" />
+    <Compile Include="Models\OrderItem.cs" />
+    <Compile Include="Models\RegularOrder.cs" />
+    <Compile Include="Models\Revenue.cs" />
+    <Compile Include="Models\RevenueDetail.cs" />
+    <Compile Include="Models\Seat.cs" />
+    <Compile Include="Models\Staff.cs" />
+    <Compile Include="Models\ThanhVanTranSysContext.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TicketHistory.cs" />
+    <Compile Include="Models\TicketPriceConfiguration.cs" />
+    <Compile Include="Models\TicketReturnFeeConfiguration.cs" />
+    <Compile Include="Models\TicketSaleDate.cs" />
+    <Compile Include="Models\Tour.cs" />
+    <Compile Include="Models\TransportPriceConfiguration.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="OrderHistory.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderHistoryDetail.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrderItem.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegularOrder.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Revenue.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RevenueDetail.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Seat.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Staff.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Ticket.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketHistory.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketPriceConfiguration.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketReturnFeeConfiguration.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TicketSaleDate.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Tour.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransportationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransportationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="TransportPriceConfiguration.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="User.cs">
+      <DependentUpon>TransportationModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+    <EntityDeploy Include="TransportationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TransportationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TransportationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransportationModel.edmx</DependentUpon>
+      <LastGenOutput>TransportationModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="TransportationModel.edmx.diagram">
+      <DependentUpon>TransportationModel.edmx</DependentUpon>
+    </None>
+    <None Include="TransportationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransportationModel.edmx</DependentUpon>
+      <LastGenOutput>TransportationModel.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

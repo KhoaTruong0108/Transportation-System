@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EAADCF89-EE92-4B4B-A6A2-C6A8D8283F21}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AppCommon</RootNamespace>
+    <AssemblyName>AppCommon</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1b44e1d426115821, processorArchitecture=MSIL">
+      <HintPath>..\dll\log4net.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.ReportViewer.WinForms\11.0.0.0__89845dcd8080cc91\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="PasswordUtility.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Libraries\PasswordUtility.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetGear">
+      <HintPath>..\dll\SpreadsheetGear.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Thrift">
+      <HintPath>..\dll\Thrift.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Business\BusBusiness.cs" />
+    <Compile Include="Business\ConfigurationBusiness.cs" />
+    <Compile Include="Business\ExpenseBusiness.cs" />
+    <Compile Include="Business\RevenueBusiness.cs" />
+    <Compile Include="Business\TicketBusiness.cs" />
+    <Compile Include="Business\TicketHistoryBusiness.cs" />
+    <Compile Include="Business\TicketPriceConfigurationBusiness.cs" />
+    <Compile Include="Business\TicketReturnFeeConfigurationBusiness.cs" />
+    <Compile Include="Business\TicketSaleDateBusiness.cs" />
+    <Compile Include="CommonBusiness\IBusiness.cs" />
+    <Compile Include="CommonBusiness\RemoteBusiness.cs" />
+    <Compile Include="CommonRepository\GenericRepository.cs" />
+    <Compile Include="CommonBusiness\GenericBusiness.cs" />
+    <Compile Include="CommonRepository\IRepository.cs" />
+    <Compile Include="CommonView\GenericDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonView\GenericDialog.Designer.cs">
+      <DependentUpon>GenericDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonView\GenericView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonView\IView.cs" />
+    <Compile Include="CommonView\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonView\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommonView\WaitingBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CommonView\WaitingBox.Designer.cs">
+      <DependentUpon>WaitingBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Entity\Report\OrderItemReportEntity.cs" />
+    <Compile Include="Entity\Report\OrderReportEntity.cs" />
+    <Compile Include="Network\TEntity\TBus.cs" />
+    <Compile Include="Network\TEntity\TConfiguration.cs" />
+    <Compile Include="Network\TEntity\TCustomer.cs" />
+    <Compile Include="Network\TEntity\TGuaranteeFee.cs" />
+    <Compile Include="Network\TEntity\TIrregularOrder.cs" />
+    <Compile Include="Network\TEntity\TOrder.cs" />
+    <Compile Include="Network\TEntity\TOrderItem.cs" />
+    <Compile Include="Network\TEntity\TRegularOrder.cs" />
+    <Compile Include="Network\TEntity\TSaleTicketDate.cs" />
+    <Compile Include="Network\TEntity\TSystemConfig.cs" />
+    <Compile Include="Network\TEntity\TTicket.cs" />
+    <Compile Include="Network\TEntity\TTicketPrice.cs" />
+    <Compile Include="Network\TEntity\TTour.cs" />
+    <Compile Include="Network\TEntity\TTransportPrice.cs" />
+    <Compile Include="Network\TEntity\TUser.cs" />
+    <Compile Include="Network\ThriftUtil.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Business\GuaranteeFeeConfigurationBusiness.cs" />
+    <Compile Include="Entity\Report\TicketReportEntity.cs" />
+    <Compile Include="Setting\GuaranteeFeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\GuaranteeFeeView.Designer.cs">
+      <DependentUpon>GuaranteeFeeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\TicketReturnFeeView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\TicketReturnFeeView.Designer.cs">
+      <DependentUpon>TicketReturnFeeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\TransportPriceConfigurationBusiness.cs" />
+    <Compile Include="Setting\TransportPriceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\TransportPriceView.Designer.cs">
+      <DependentUpon>TransportPriceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\TicketPriceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\TicketPriceView.Designer.cs">
+      <DependentUpon>TicketPriceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Setting\SystemConfigView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting\SystemConfigView.Designer.cs">
+      <DependentUpon>SystemConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Customer\CustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Customer\CustomerView.Designer.cs">
+      <DependentUpon>CustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Customer\SelectCustomerView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Customer\SelectCustomerView.Designer.cs">
+      <DependentUpon>SelectCustomerView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Entity\OrderBase.cs" />
+    <Compile Include="Transport\Order\CompleteIrregularOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\CompleteIrregularOrder.Designer.cs">
+      <DependentUpon>CompleteIrregularOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\IrregularOrderBusiness.cs" />
+    <Compile Include="Transport\Order\IrregularOrderPaymentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\IrregularOrderPaymentView.Designer.cs">
+      <DependentUpon>IrregularOrderPaymentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Order\IrregularOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\IrregularOrderView.Designer.cs">
+      <DependentUpon>IrregularOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Order\ItemDetailsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\ItemDetailsView.Designer.cs">
+      <DependentUpon>ItemDetailsView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Order\ItemsListUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\ItemsListUC.Designer.cs">
+      <DependentUpon>ItemsListUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Order\CreateOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\CreateOrderView.Designer.cs">
+      <DependentUpon>CreateOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\RegularOrderBusiness.cs" />
+    <Compile Include="Transport\Order\CompleteRegularOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\CompleteRegularOrder.Designer.cs">
+      <DependentUpon>CompleteRegularOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Transport\Order\RegularOrderView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transport\Order\RegularOrderView.Designer.cs">
+      <DependentUpon>RegularOrderView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travel\CompleteTicket\CompleteTicketView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travel\CompleteTicket\CompleteTicketView.Designer.cs">
+      <DependentUpon>CompleteTicketView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travel\SaleDateSetting\SaleDateSettingView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travel\SaleDateSetting\SaleDateSettingView.Designer.cs">
+      <DependentUpon>SaleDateSettingView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\CustomerBusiness.cs" />
+    <Compile Include="Entity\IrregularCustomer.cs" />
+    <Compile Include="Entity\RegularCustomer.cs" />
+    <Compile Include="Business\IOrderBusiness.cs" />
+    <Compile Include="Business\OrderItemBusiness.cs" />
+    <Compile Include="Travel\SaleTicket\SaleTicketView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travel\SaleTicket\SaleTicketView.Designer.cs">
+      <DependentUpon>SaleTicketView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travel\SaleTicket\SeatMap.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Travel\SaleTicket\SeatMap.Designer.cs">
+      <DependentUpon>SeatMap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Travel\SaleTicket\TicketPaymentView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Travel\SaleTicket\TicketPaymentView.Designer.cs">
+      <DependentUpon>TicketPaymentView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\TourBusiness.cs" />
+    <Compile Include="Business\UserBusiness.cs" />
+    <Compile Include="User\UserView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="User\UserView.Designer.cs">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\AppLogger.cs" />
+    <Compile Include="Util\AutoSendMail.cs" />
+    <Compile Include="Util\ConfigurationUtil.cs" />
+    <Compile Include="Util\CurrencyUtil.cs" />
+    <Compile Include="Util\DateConvertor.cs" />
+    <Compile Include="Util\EnumHelper.cs" />
+    <Compile Include="Util\Exportor.cs" />
+    <Compile Include="Util\FileReader.cs" />
+    <Compile Include="Util\Exporter.cs" />
+    <Compile Include="Util\IpAddressUtil.cs" />
+    <Compile Include="Util\SystemParam.cs" />
+    <Compile Include="Util\IDGenerator.cs" />
+    <Compile Include="Util\SendMail.cs" />
+    <Compile Include="Util\StringUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DBManagement\DBManagement.csproj">
+      <Project>{C9C6AB15-6373-4EA3-8A87-2887FB4687C4}</Project>
+      <Name>DBManagement</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="CommonView\GenericDialog.resx">
+      <DependentUpon>GenericDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonView\GenericView.resx">
+      <DependentUpon>GenericView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonView\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CommonView\WaitingBox.resx">
+      <DependentUpon>WaitingBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\BusTickets.rdlc" />
+    <EmbeddedResource Include="Report\TicketReciept.rdlc" />
+    <EmbeddedResource Include="Setting\GuaranteeFeeView.resx">
+      <DependentUpon>GuaranteeFeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\TicketReturnFeeView.resx">
+      <DependentUpon>TicketReturnFeeView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\TransportPriceView.resx">
+      <DependentUpon>TransportPriceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\TicketPriceView.resx">
+      <DependentUpon>TicketPriceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Setting\SystemConfigView.resx">
+      <DependentUpon>SystemConfigView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Customer\CustomerView.resx">
+      <DependentUpon>CustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Customer\SelectCustomerView.resx">
+      <DependentUpon>SelectCustomerView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\CompleteIrregularOrder.resx">
+      <DependentUpon>CompleteIrregularOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\IrregularOrderPaymentView.resx">
+      <DependentUpon>IrregularOrderPaymentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\IrregularOrderView.resx">
+      <DependentUpon>IrregularOrderView.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\ItemDetailsView.resx">
+      <DependentUpon>ItemDetailsView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\ItemsListUC.resx">
+      <DependentUpon>ItemsListUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\CreateOrderView.resx">
+      <DependentUpon>CreateOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\CompleteRegularOrder.resx">
+      <DependentUpon>CompleteRegularOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transport\Order\RegularOrderView.resx">
+      <DependentUpon>RegularOrderView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travel\CompleteTicket\CompleteTicketView.resx">
+      <DependentUpon>CompleteTicketView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travel\SaleDateSetting\SaleDateSettingView.resx">
+      <DependentUpon>SaleDateSettingView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travel\SaleTicket\SaleTicketView.resx">
+      <DependentUpon>SaleTicketView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travel\SaleTicket\SeatMap.resx">
+      <DependentUpon>SeatMap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Travel\SaleTicket\TicketPaymentView.resx">
+      <DependentUpon>TicketPaymentView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="User\UserView.resx">
+      <DependentUpon>UserView.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="Properties\DataSources\DBManagement.Bus.datasource" />
+    <None Include="Properties\DataSources\DBManagement.Ticket.datasource" />
+    <None Include="Properties\DataSources\DBManagement.Tour.datasource" />
+    <None Include="Resources\search-icon-grey.png" />
+    <None Include="Resources\search-icon.png" />
+    <None Include="Resources\edit2_grey.png" />
+    <None Include="Resources\edit2.png" />
+    <None Include="Resources\edit_grey.png" />
+    <None Include="Resources\edit.png" />
+    <None Include="Resources\delete2_grey.png" />
+    <None Include="Resources\delete2.png" />
+    <None Include="Resources\delete_grey.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\add2_grey.png" />
+    <None Include="Resources\add2.png" />
+    <None Include="Resources\add_grey.png" />
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Icon\cancel_16.ico" />
+    <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

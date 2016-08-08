@@ -1,0 +1,6 @@
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\bin\Debug\TestProj.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\bin\Debug\TestProj.pdb
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\obj\Debug\TestProj.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\obj\Debug\TestProj.pdb
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\bin\Debug\PasswordUtility.Core.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\Supervisor\TestProj\obj\Debug\TestProj.csprojResolveAssemblyReference.cache

@@ -1,0 +1,8 @@
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\bin\Release\DBManagement.dll.config
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\bin\Release\DBManagement.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\bin\Release\DBManagement.pdb
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\bin\Release\EntityFramework.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\bin\Release\EntityFramework.xml
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\obj\Release\DBManagement.csprojResolveAssemblyReference.cache
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\obj\Release\DBManagement.dll
+D:\PROJECT\TransportSystem\source\com.lhk.transportsystem\DBManagement\obj\Release\DBManagement.pdb
